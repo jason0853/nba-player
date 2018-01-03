@@ -2,8 +2,18 @@ version: '2.1'
 
 services:
   koa:
+    container_name: koa-server
     build: ./nba-backend
+    depends_on:
+      - mongo
     ports:
       - "8888:8000"
     volumes:
       - ./nba-backend/src/:/usr/src/nba-backend/src/
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./nba-data:/data/db
+    ports:
+      - "27017:27017"
