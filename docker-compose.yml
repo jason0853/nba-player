@@ -1,0 +1,9 @@
+version: '2.1'
+
+services:
+  koa:
+    build: ./nba-backend
+    ports:
+      - "8888:8000"
+    volumes:
+      - ./nba-backend/src/:/usr/src/nba-backend/src/
